@@ -1,0 +1,26 @@
+<html>
+<head>
+</head>
+<body>
+  <a href="">back</a><br>
+  <pre><code id="code" contenteditable="true"><%= formattedHtml %></code></pre>
+  <button type="button" onclick="saveFile(<%= filepath %>)">save</button>
+  <button type="button" onclick="revertChanges()">undo</button>
+</body>
+</html>
+<script>
+var fs = require('fs')
+var saveFile = function(filepath){
+  var html = document.getElementById("code").innerHTML
+  fs.writeFile(filepath, html, function(err){
+    if(err){
+      return alert(err)
+    }
+    alert("File saved")
+  })
+}
+
+var revertChanges = function(id){
+
+}
+</script>
